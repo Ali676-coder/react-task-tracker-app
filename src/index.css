@@ -1,115 +1,308 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
-
 /* base styles */
 * {
   margin: 0;
-  font-family: "Quicksand";
-  color: #333;
-}
-.navbar {
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  max-width: 600px;
-  margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
-}
-.navbar h1 {
-  color: #f1356d;
-}
-.navbar .links {
-  margin-left: auto;
-}
-.navbar a {
-  margin-left: 16px;
-  text-decoration: none;
-  padding: 6px;
-}
-.navbar a:hover:not(a:nth-child(2)) {
-  color: #f1356d;
-}
-.content {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
-}
-a:nth-child(2) {
-  color: white;
-  background-color: #f1356d;
-  border-radius: 8px;
-  padding: 10px;
-}
-/* blog previews / list */
-.blog-preview {
-  padding: 10px 16px;
-  margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
-}
-.blog-preview:hover {
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 1);
-}
-.blog-preview h2 {
-  font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 8px;
-}
-.delete-blog {
-  margin-left: 16px;
-  text-decoration: none;
-  padding: 6px;
-  background-color: #f1356d;
-  color: white;
-  cursor: pointer;
-}
-.blog-preview a {
-  text-decoration: none;
-}
-.blog-details h2 {
-  font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 10px;
-}
-.blog-details div {
-  margin: 20px 0;
-}
-.blog-details button {
-  background: #f1356d;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-/* create new blog form */
-.create {
-  max-width: 400px;
-  margin: 0 auto;
-  text-align: center;
-}
-.create label {
-  text-align: left;
-  display: block;
-}
-.create h2 {
-  font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 30px;
-}
-.create input,
-.create textarea,
-.create select {
-  width: 100%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
+  padding: 0;
   box-sizing: border-box;
-  display: block;
 }
-.create button {
-  background: #f1356d;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ddd;
+}
+/* base styles */
+
+/* Start Root Component */
+.homePage,
+.task-details {
+  width: 500px;
+  margin: 25px 0px;
+  padding: 15px 20px;
+  border: 1px solid #eee;
+  border-radius: 7px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  user-select: none;
+}
+@media (max-width: 768px) {
+  .homePage,
+  .task-details {
+    width: 400px;
+  }
+}
+@media (max-width: 468px) {
+  .homePage,
+  .task-details {
+    width: 300px;
+  }
+}
+/* End Root Component */
+
+/* Start Header Component */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header h2 {
+  letter-spacing: 2px;
+}
+/* End Header Component */
+
+/* Start Button Component */
+.btn button {
+  padding: 5px 15px;
+  text-transform: uppercase;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border-radius: 4px;
+}
+.btn button:hover {
+  transform: scale(1.2);
+}
+/* End Button Component */
+
+/* Start Form Component */
+.task-form {
+  padding: 20px;
+}
+.task-form form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.task-form form input {
+  width: 100%;
+  padding: 7px;
+  outline: none;
+  font-size: 15px;
+  border: 1px solid #b9b9b9;
+  border-radius: 4px;
+}
+.task-form form label {
+  margin: 10px 0 7px;
+}
+.task-form input[type="submit"] {
+  color: white;
+  border: none;
+  padding: 11px;
+  background-color: black;
+  cursor: pointer;
+  margin-top: 10px;
+}
+/* End Form Component */
+
+/* Start Task Component */
+.task {
+  padding: 5px 20px;
+}
+.task ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.task ul > p {
+  padding: 10px;
+  letter-spacing: 2px;
+  font-size: 18px;
+  color: grey;
+  text-align: center;
+  margin: 10px 0;
+}
+.task ul a {
+  text-decoration: none;
+  color: black;
+}
+.task ul li {
+  background-color: #ddd;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 4px;
+  margin: 9px 0px;
+  user-select: none;
+  transition: 0.3s ease;
+  border-left: 0px solid transparent;
   cursor: pointer;
 }
+.task ul li div {
+  width: 100%;
+}
+.task ul li div h3 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #b9b9b9;
+}
+.task ul li div .date {
+  margin-top: 15px;
+}
+.task ul li div .date p {
+  font-size: 14px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  margin-bottom: 5px;
+}
+@media (max-width: 500px) {
+  .task ul li div p {
+    font-size: 12px;
+  }
+}
+.task ul li.important {
+  border-left: 7px solid green;
+}
+/* End Task Component */
+
+/* Start Copy Component : Footer*/
+.copy {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px 0 10px;
+  cursor: pointer;
+  background-color: rgb(29, 24, 24);
+  padding: 10px;
+  color: white;
+  letter-spacing: 2px;
+}
+.copy h4 {
+  font-size: 18px;
+}
+.copy p {
+  margin-top: 5px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.copy p svg {
+  margin-left: 5px;
+}
+/* End Copy Component : Footer*/
+
+/* Start Info Component */
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px;
+}
+.info h3 {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  user-select: none;
+}
+.info p {
+  margin-bottom: 15px;
+  user-select: none;
+}
+.info button {
+  width: 100%;
+  color: white;
+  background-color: rgb(29, 24, 24);
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info button svg {
+  margin-right: 5px;
+}
+/* End Info Component */
+
+/* Start TaskDetails Component */
+.task-details .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #b9b9b9;
+  padding-bottom: 2px;
+}
+.task-details .title svg {
+  font-size: 20px;
+  color: rgb(37, 35, 35);
+}
+.task-details .details {
+  border-bottom: 1px solid #b9b9b9;
+  padding-bottom: 5px;
+}
+.task-details .details .desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-details .details .desc svg {
+  font-size: 20px;
+  color: rgb(37, 35, 35);
+}
+.task-details .details .desc h3 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.task-details .details p {
+  color: rgb(37, 35, 35);
+  margin-bottom: 5px;
+}
+.task-details .time {
+  border-bottom: 1px solid #b9b9b9;
+  padding-bottom: 5px;
+}
+.task-details .time .time-date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-details .time .time-date svg {
+  font-size: 20px;
+  color: rgb(37, 35, 35);
+}
+.task-details .time .time-date h3 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.task-details .time p {
+  color: rgb(37, 35, 35);
+  margin-bottom: 2px;
+}
+.task-details .time p:last-child {
+  margin-bottom: 5px;
+  color: crimson;
+}
+.task-details .edit {
+  padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.task-details .edit button {
+  padding: 5px 15px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border-radius: 4px;
+  color: white;
+}
+.task-details .edit button:hover {
+  transform: scale(1.2);
+}
+.task-details .edit button:first-child {
+  background-color: green;
+}
+.task-details .edit button:nth-child(2) {
+  background-color: crimson;
+}
+/* End TaskDetails Component */
