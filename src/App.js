@@ -6,7 +6,14 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
-  const [task, setTask] = useState([]);
+  const [task, setTask] = useState(() => {
+    const saved = localStorage.getItem("tasks");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(task));
+  }, [task]);
 
   return (
     <Router>

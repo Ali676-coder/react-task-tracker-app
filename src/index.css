@@ -185,6 +185,36 @@ body {
 .copy p svg {
   margin-left: 5px;
 }
+/* Start Language Switcher */
+.lang-switcher {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+
+.lang-btn {
+  background-color: #333;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+/* End Language Switcher */
+
+/* Language Direction Handling */
+.info.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+.info.rtl {
+  direction: rtl;
+  text-align: right;
+}
 /* End Copy Component : Footer*/
 
 /* Start Info Component */

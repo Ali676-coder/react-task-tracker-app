@@ -9,21 +9,11 @@ import { useState } from "react";
 function HomePage({ task, setTask }) {
   // State for fetch data
 
-  useEffect(() => {
-    fetch("http://localhost:8000/tasks")
-      .then((data) => {
-        return data.json();
-      })
-      .then((data) => {
-        setTask(data);
-      });
-    if (!all) {
-      setShow(false);
-    }
-  }, []);
-
   const [show, setShow] = useState(true);
   const [all, setAll] = useState(true);
+  useEffect(() => {
+    if (!all) setShow(false);
+  }, [all]);
 
   return (
     <div className="homePage">

@@ -15,15 +15,10 @@ const Form = ({ show, task, setTask }) => {
 
     const oneTask = { title, description, deadline, reminder, addedAt };
 
-    fetch("http://localhost:8000/tasks", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(oneTask),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setTask([...task, data]);
-      });
+    const id = Date.now().toString();
+    const newTask = { ...oneTask, id };
+    setTask([...task, newTask]);
+
     setTitle("");
     setDeadline("");
     setDescription("");

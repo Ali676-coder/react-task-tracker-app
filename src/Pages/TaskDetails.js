@@ -12,14 +12,6 @@ const TaskDetails = ({ task, setTask }) => {
   let navigate = useNavigate();
   let params = useParams();
   const [oneTask, setOneTask] = useState({});
-  //   Fetching data
-  useEffect(() => {
-    fetch(`http://localhost:8000/tasks/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setOneTask(data);
-      });
-  }, [params.id]);
 
   //   Date Function
   const getTimeLeft = (deadline) => {
@@ -57,36 +49,32 @@ const TaskDetails = ({ task, setTask }) => {
   //   Date Function
 
   // Delete Handler
-  const delteHandler = () => {
-    fetch(`http://localhost:8000/tasks/${params.id}`, {
-      method: "DELETE",
-    }).then((res) => {
-      const updateTask = task.filter((item) => item.id !== params.id);
-      setTask(updateTask);
-    });
+  const deleteHandler = () => {
+    const updatedTasks = task.filter(
+      (item) => item.id.toString() !== params.id
+    );
+    setTask(updatedTasks);
     navigate("/", { replace: true });
   };
+
   // complete Handler
   const completeHandler = () => {
-    fetch(`http://localhost:8000/tasks/${params.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        reminder: true,
-      }),
-    })
-      .then((res) => res.json())
-      .then((updatedTask) => {
-        const updatedList = task.map((item) => {
-          return item.id === params.id ? updatedTask : item;
-        });
-        setTask(updatedList);
-        setOneTask(updatedTask);
-      });
+    const updatedList = task.map((item) =>
+      item.id === params.id ? { ...item, reminder: true } : item
+    );
+    setTask(updatedList);
     navigate("/", { replace: true });
   };
+  //   Fetching data
+  useEffect(() => {
+    const foundTask = task.find((t) => t.id.toString() === params.id);
+    if (!foundTask) {
+      navigate("/", { replace: true });
+      return;
+    }
+    setOneTask(foundTask);
+  }, [params.id, task, navigate]);
+
   return (
     <div className="task-details">
       <div className="title">
@@ -121,7 +109,7 @@ const TaskDetails = ({ task, setTask }) => {
       </div>
       <div className="edit">
         <button onClick={completeHandler}>Completed</button>
-        <button onClick={delteHandler}>Delete</button>
+        <button onClick={deleteHandler}>Delete</button>
       </div>
     </div>
   );
