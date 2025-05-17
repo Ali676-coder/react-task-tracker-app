@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-task-tracker-app/static/css/main.7d786de6.css",
+    "main.js": "/react-task-tracker-app/static/js/main.86f3232f.js",
+    "index.html": "/react-task-tracker-app/index.html",
+    "main.7d786de6.css.map": "/react-task-tracker-app/static/css/main.7d786de6.css.map",
+    "main.86f3232f.js.map": "/react-task-tracker-app/static/js/main.86f3232f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7d786de6.css",
+    "static/js/main.86f3232f.js"
+  ]
+}
